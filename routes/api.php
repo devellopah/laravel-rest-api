@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/test-api', function() {
-    return ['message' => 'test-api'];
+Route::prefix('v1')->group(function () {
+    Route::apiResource('posts', 'PostController');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
